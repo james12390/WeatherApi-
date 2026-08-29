@@ -1,0 +1,30 @@
+﻿@model WeatherApp.Models.OpenWeatherMapResponse
+
+<div class="container mt-4">
+    <h4>請選擇縣市：</h4>
+    <form asp-controller="Weather" asp-action="getWeather" method="get" class="d-flex flex-wrap gap-2">
+        <button type="submit" name="city" value="Taipei" class="btn btn-outline-primary">台北市</button>
+        <button type="submit" name="city" value="New Taipei" class="btn btn-outline-primary">新北市</button>
+        <button type="submit" name="city" value="Taoyuan" class="btn btn-outline-primary">桃園市</button>
+        <button type="submit" name="city" value="Taichung" class="btn btn-outline-primary">台中市</button>
+        <button type="submit" name="city" value="Tainan" class="btn btn-outline-primary">台南市</button>
+        <button type="submit" name="city" value="Kaohsiung" class="btn btn-outline-primary">高雄市</button>
+        <button type="submit" name="city" value="Keelung" class="btn btn-outline-primary">基隆市</button>
+        <button type="submit" name="city" value="Hsinchu" class="btn btn-outline-primary">新竹市</button>
+        <button type="submit" name="city" value="Chiayi" class="btn btn-outline-primary">嘉義市</button>
+        <button type="submit" name="city" value="Yilan" class="btn btn-outline-primary">宜蘭縣</button>
+        <button type="submit" name="city" value="Hualien" class="btn btn-outline-primary">花蓮縣</button>
+        <button type="submit" name="city" value="Taitung" class="btn btn-outline-primary">台東縣</button>
+    </form>
+</div>
+
+
+
+@if (Model != null)
+{
+    <h2>@Model.CityName (@Model.Sys.Country) 天氣狀況</h2>
+    <p>氣溫：@Model.Main.Temp °C (體感 @Model.Main.FeelsLike °C)</p>
+    <p>濕度：@Model.Main.Humidity %</p>
+    <p>狀況：@Model.Weather.FirstOrDefault()?.Description</p>
+
+}

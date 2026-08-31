@@ -44,3 +44,7 @@ var response = await client.GetAsync(requestUrl);
 var weatherData = await response.Content.ReadFromJsonAsync<OpenWeatherMapResponse>();
 return View("Weather",weatherData);
 
+畫面展示
+
+
+![](https://github.com/james12390/WeatherApi-/blob/master/WeatherApp/Implementation_photos/Weather.png)
